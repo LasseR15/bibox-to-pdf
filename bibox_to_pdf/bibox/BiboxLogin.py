@@ -1,7 +1,7 @@
 import typer
 from playwright.sync_api import sync_playwright
-from src.values.BiboxSelectors import BiboxSelectors
-from src.values.Constants import Constants
+from bibox_to_pdf.values.BiboxSelectors import BiboxSelectors
+from bibox_to_pdf.values.Constants import Constants
 from rich import print
 
 

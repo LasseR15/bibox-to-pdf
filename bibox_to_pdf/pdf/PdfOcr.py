@@ -1,7 +1,7 @@
 import os
 import ocrmypdf
 from rich import print
-from src.values.Constants import Constants
+from bibox_to_pdf.values.Constants import Constants
 
 
 def ocr_pdf(book_id: int, pdf_non_ocr_path: str):

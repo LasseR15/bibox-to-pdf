@@ -1,10 +1,10 @@
 import typer
 from typing_extensions import Annotated
-from src.bibox.BiboxImageDownloader import get_bibox_images, download_images_from_bibox
-from src.bibox.BiboxLogin import login_to_bibox
-from src.pdf.PdfCreator import create_pdf_from_images
-from src.pdf.PdfOcr import ocr_pdf
-from src.values.Constants import Constants
+from bibox_to_pdf.bibox.BiboxImageDownloader import get_bibox_images, download_images_from_bibox
+from bibox_to_pdf.bibox.BiboxLogin import login_to_bibox
+from bibox_to_pdf.pdf.PdfCreator import create_pdf_from_images
+from bibox_to_pdf.pdf.PdfOcr import ocr_pdf
+from bibox_to_pdf.values.Constants import Constants
 from rich import print
 
 

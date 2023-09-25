@@ -1,7 +1,7 @@
 import os
 import img2pdf
 from rich import print
-from src.values.Constants import Constants
+from bibox_to_pdf.values.Constants import Constants
 
 
 def create_pdf_from_images(book_id: int, image_paths: []):

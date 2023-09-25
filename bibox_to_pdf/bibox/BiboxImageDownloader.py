@@ -1,7 +1,7 @@
 import os
 import requests
 import typer
-from src.values.Constants import Constants
+from bibox_to_pdf.values.Constants import Constants
 from rich import print
 from rich.progress import track
 
