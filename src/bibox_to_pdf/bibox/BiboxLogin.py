@@ -25,7 +25,7 @@ def login_to_bibox(username: str, password: str) -> str:
             page.wait_for_selector(BiboxSelectors.logoutBtn, timeout=10000)
         except:
             print('Login credentials incorrect or a network error occurred.')
-            typer.Exit(1)
+            raise typer.Exit(1)
 
         access_token = page.evaluate('() => window.localStorage.getItem("oauth.accessToken")')
 
