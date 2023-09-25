@@ -1,0 +1,5 @@
+typer~=0.9.0
+playwright~=1.38.0
+ocrmypdf~=14.4.0
+img2pdf~=0.4.4
+requests~=2.31.0
