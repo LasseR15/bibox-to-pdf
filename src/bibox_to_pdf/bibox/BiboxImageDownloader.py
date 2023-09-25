@@ -14,7 +14,7 @@ def get_bibox_images(access_token: str, book_id: int):
 
     if response.status_code != 200:
         print("Response code from server was not 200. Exiting!")
-        typer.Exit(1)
+        raise typer.Exit(1)
 
     return pages_to_image_array(response.json().get("pages", []))
 
@@ -52,7 +52,7 @@ def pages_to_image_array(pages: []):
         image = page["images"][0] if page.get("images") else None
         if image is None:
             print("At least one image was null. Maybe script needs updating. Exiting!")
-            typer.Exit(1)
+            raise typer.Exit(1)
         images.append(image)
 
     return images
