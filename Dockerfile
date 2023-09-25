@@ -20,5 +20,6 @@ RUN python -m playwright install-deps chromium
 RUN python -m playwright install chromium
 
 ENV PYTHONPATH=/app/src/
+ENV BASE_OUTPUT_PATH=/app/output
 
 ENTRYPOINT ["python3", "/app/src/main.py"]
