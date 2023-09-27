@@ -44,7 +44,7 @@
     <li>
       <a href="#usage">Usage</a>
       <ul>
-        <li><a href="#usage-with-docker">Usage with Docker</a></li>
+        <li><a href="#usage-with-Docker">Usage with Docker</a></li>
         <li><a href="#usage-with-manual-setup">Usage with manual setup</a></li>
       </ul>
     </li>
@@ -69,32 +69,67 @@ You need valid login credentials as well as access to the books you want to down
 <!-- GETTING STARTED -->
 ## Getting Started
 
-There are currently two ways to run this script. You can either run it via Docker or run it manually.
+You can currently only run the script via Docker.
 
-### Prerequisites for manual setup
-
-You have to install the following before running the application:
-* Python 3.10
-
-If you want to do ocr you also have to install:
-* [ghostscript](https://www.ghostscript.com/)
-* [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
-
+In the future there will be a described way to run it manually.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-### Usage with docker
+### Usage with Docker
 
-USAGE DOCKER
+To run the image via Docker you can either do it directly via the Docker cli or the recommended way Docker compose.
+
+There are two variants/tags available:
+1. `latest`: The latest ocr version Docker image (larger image than the non-ocr verison)
+2. `latest-non-ocr`: The latest non-ocr version. This image has no support for pdf ocr and is therefore smaller than the ocr version
+
+#### Docker Compose
+
+To use the ocr version of the script with Docker Compose run the following command:
+```bash
+docker compose --rm -it run bibox-to-cli \
+    '{USERNAME}' '{PASSWORD}' {BOOK_ID}
+```
+
+If you want to run the non-ocr version run the following command.
+
+You can also simply add `--no-ocr` before the username in the above command.
+```bash
+docker compose -f ./docker-compose.non-ocr.yml --rm -it run bibox-to-cli \
+    '{USERNAME}' '{PASSWORD}' {BOOK_ID}
+```
+
+#### Docker CLI
+
+To use the script with ocr via Docker run the following command:
+```bash
+Docker run --rm -it \
+    -v ./books:/app/output/books \
+    ghcr.io/lasser15/bibox-to-pdf:latest \
+    '{USERNAME}' '{PASSWORD}' {book_id}
+```
+
+To use it without ocr, run the following command.
+
+You can also simply add `--no-ocr` before the username in the above command.
+```bash
+Docker run --rm -it \
+    -v ./books:/app/output/books \
+    ghcr.io/lasser15/bibox-to-pdf:latest-non-ocr \
+    '{USERNAME}' '{PASSWORD}' {book_id}
+```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 ### Usage with manual setup
 
-USAGE
+The manual setup is currently not supported. Please use Docker instead.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
