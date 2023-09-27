@@ -13,7 +13,9 @@ def get_bibox_images(access_token: str, book_id: int):
     response = requests.get(url, headers=headers)
 
     if response.status_code != 200:
-        print("Response code from server was not 200. Exiting!")
+        print(f"Response code from server was not 200. "
+              f"Either the book id '{book_id}' doesn't exist or the login wasn't successful. "
+              f"Exiting!")
         raise typer.Exit(1)
 
     return pages_to_image_array(response.json().get("pages", []))
