@@ -2,9 +2,9 @@ version: '3.9'
 
 services:
   bibox-to-pdf:
-    image: ghcr.io/lasser15/bibox-to-pdf:latest
+    image: ghcr.io/lasser15/bibox-to-pdf:latest-non-ocr
     build:
-      dockerfile: Dockerfile
+      dockerfile: non-ocr.Dockerfile
       context: .
     volumes:
       - ./books:/app/output/books

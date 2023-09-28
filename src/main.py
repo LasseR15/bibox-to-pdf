@@ -11,7 +11,8 @@ from rich import print
 def main(
         username: Annotated[str, typer.Argument()],
         password: Annotated[str, typer.Argument()],
-        book_id: Annotated[int, typer.Argument()]):
+        book_id: Annotated[int, typer.Argument()],
+        do_ocr: Annotated[bool, typer.Option(help="Don't do ocr on the generated pdf", default=False)]):
 
     book_dest_path = Constants.bookBaseOutputDir.format(book_id)
     print(f"Downloading book with id '{book_id}' to '{book_dest_path}'...")
@@ -21,7 +22,9 @@ def main(
     bibox_images = get_bibox_images(access_token, book_id)
     image_paths = download_images_from_bibox(bibox_images, book_id)
     pdf_non_ocr_path = create_pdf_from_images(book_id, image_paths)
-    ocr_pdf(book_id, pdf_non_ocr_path)
+
+    if do_ocr:
+        ocr_pdf(book_id, pdf_non_ocr_path)
 
 
 if __name__ == "__main__":
