@@ -84,7 +84,7 @@ To run the image via Docker you can either do it directly via the Docker cli or 
 
 There are two variants/tags available:
 1. `latest`: The latest ocr version Docker image (larger image than the non-ocr verison)
-2. `latest-non-ocr`: The latest non-ocr version. This image has no support for pdf ocr and is therefore smaller than the ocr version
+2. `latest-non-ocr`: The latest non-ocr version. This image has no support for pdf ocr and is therefore smaller than the ocr version (Currently not available)
 
 #### Docker Compose
 
@@ -93,7 +93,7 @@ To use the ocr version of the script with Docker Compose run the following comma
 docker compose --rm -it run bibox-to-cli \
     '{USERNAME}' '{PASSWORD}' {BOOK_ID}
 ```
-
+<!-- CURRENTLY NOT AVAILABLE
 If you want to run the non-ocr version run the following command.
 
 You can also simply add `--no-ocr` before the username in the above command.
@@ -101,7 +101,7 @@ You can also simply add `--no-ocr` before the username in the above command.
 docker compose -f ./docker-compose.non-ocr.yml --rm -it run bibox-to-cli \
     '{USERNAME}' '{PASSWORD}' {BOOK_ID}
 ```
-
+-->
 #### Docker CLI
 
 To use the script with ocr via Docker run the following command:
@@ -111,7 +111,7 @@ Docker run --rm -it \
     ghcr.io/lasser15/bibox-to-pdf:latest \
     '{USERNAME}' '{PASSWORD}' {book_id}
 ```
-
+<!-- CURRENTLY NOT AVAILABLE
 To use it without ocr, run the following command.
 
 You can also simply add `--no-ocr` before the username in the above command.
@@ -121,7 +121,7 @@ Docker run --rm -it \
     ghcr.io/lasser15/bibox-to-pdf:latest-non-ocr \
     '{USERNAME}' '{PASSWORD}' {book_id}
 ```
-
+-->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
