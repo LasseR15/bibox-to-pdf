@@ -92,7 +92,7 @@ There are two variants/tags available:
 #### Docker Compose
 To use the ocr version of the script with Docker Compose run the following command:
 ```bash
-docker compose --rm -it run bibox-to-cli \
+docker compose run --rm -it bibox-to-pdf \
     '{USERNAME}' '{PASSWORD}' {BOOK_ID}
 ```
 <!-- CURRENTLY NOT AVAILABLE
