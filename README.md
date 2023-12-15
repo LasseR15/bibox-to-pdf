@@ -56,7 +56,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
 This cli script allows you to download and ocr books from [BiBox](https://www.bibox.schule/).
 
 You need valid login credentials as well as access to the books you want to download.
@@ -68,7 +67,6 @@ You need valid login credentials as well as access to the books you want to down
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
 You can currently only run the script via Docker.
 
 In the future there will be a described way to run it manually.
@@ -78,8 +76,13 @@ In the future there will be a described way to run it manually.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-### Usage with Docker
 
+### Finding the book id
+To find the book id, head over to https://bibox.schule and log in to your account. Now open the book you want to download. <br>
+The url in your browser should look something like: `https://bibox2.westermann.de/book/5417/page/1`. <br>
+Here the book id is `5417` (between the "/book/" and "/page/" section of the url).
+
+### Usage with Docker
 To run the image via Docker you can either do it directly via the Docker cli or the recommended way Docker compose.
 
 There are two variants/tags available:
@@ -87,7 +90,6 @@ There are two variants/tags available:
 2. `latest-non-ocr`: The latest non-ocr version. This image has no support for pdf ocr and is therefore smaller than the ocr version (Currently not available)
 
 #### Docker Compose
-
 To use the ocr version of the script with Docker Compose run the following command:
 ```bash
 docker compose --rm -it run bibox-to-cli \
@@ -103,10 +105,9 @@ docker compose -f ./docker-compose.non-ocr.yml --rm -it run bibox-to-cli \
 ```
 -->
 #### Docker CLI
-
 To use the script with ocr via Docker run the following command:
 ```bash
-Docker run --rm -it \
+docker run --rm -it \
     -v ./books:/app/output/books \
     ghcr.io/lasser15/bibox-to-pdf:latest \
     '{USERNAME}' '{PASSWORD}' {book_id}
@@ -116,7 +117,7 @@ To use it without ocr, run the following command.
 
 You can also simply add `--no-ocr` before the username in the above command.
 ```bash
-Docker run --rm -it \
+docker run --rm -it \
     -v ./books:/app/output/books \
     ghcr.io/lasser15/bibox-to-pdf:latest-non-ocr \
     '{USERNAME}' '{PASSWORD}' {book_id}
@@ -127,7 +128,6 @@ Docker run --rm -it \
 
 
 ### Usage with manual setup
-
 The manual setup is currently not supported. Please use Docker instead.
 
 
@@ -138,7 +138,6 @@ The manual setup is currently not supported. Please use Docker instead.
 
 <!-- LICENSE -->
 ## License
-
 Distributed under the GPL 3.0 License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
