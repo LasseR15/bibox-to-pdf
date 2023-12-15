@@ -32,7 +32,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            # set latest tag for master branch
+            # Default: Set branch name as tag
+            type=ref,event=branch
+            # Set latest tag for release branch
             type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'release') }}
 
 
